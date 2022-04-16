@@ -1,12 +1,14 @@
 from multiprocessing import context
 from django.shortcuts import render
-from .models import Post
+from .models import *
 
 # Create your views here.
 def home(request):
     posts =Post.objects.all()
+    categories =Category.objects.all()
     context = {
-        "posts":posts
+        "posts":posts,
+        "categories":categories
     }
     return render(request, 'index.html', context)
 

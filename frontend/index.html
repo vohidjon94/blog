@@ -124,21 +124,23 @@
     <section class="portfolio_card_padding">
         <div class="portfolio_card_style_2 ft_font text-center padding_bottom">
             <div class="card-columns">
+                {%for post in posts %}
                 <div class="card wow fadeInDown" data-wow-delay=".3s">
                     <div class="single_portfolio_part overlay_effect">
                         <a href="single_project_1.html" class=" single_portfolio_img">
                             <div class="overlay_effect_in">
-                                <img src="img/portfolio/portfolio_1.png" alt="#" class="matrix3d_1 img-fluid">
+                                <img src="{{ post.rasm.url }}" alt="#" class="matrix3d_1 img-fluid">
                             </div>
                         </a>
                         <h3> 
                             <span class="overlay_effect_in horizontal_effect">
-                                <a class="tittle_animation" href="single_project_1.html" data-hover="Social Profile Banner"> Social Profile Banner</a> 
+                                <a class="tittle_animation"  data-hover="{{ post.nomi }}"> {{ post.nomi }}</a> 
                             </span> 
                         </h3>
-                        <p> <span class="overlay_effect_in"> UI/UX Design</span></p>
+                        <p> <span class="overlay_effect_in"> {{ post.tanlov }}</span></p>
                     </div>
                 </div>
+                {% endfor %}
                 
             </div>
             <div class="overlay_effect d-inline-flex">
