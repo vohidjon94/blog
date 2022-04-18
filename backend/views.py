@@ -4,7 +4,14 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    posts =Post.objects.all()
+    
+    category = request.GET.get('category')
+    if category == None:
+        posts =Post.objects.all()
+    else:
+        posts =Post.objects.filter(category__name=category)
+
+
     categories =Category.objects.all()
     context = {
         "posts":posts,
